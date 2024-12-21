@@ -1,17 +1,29 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import {Poppins, Roboto_Mono, Crimson_Text, Gravitas_One} from "next/font/google";
 import "./globals.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: '400',
+  variable: "--font-poppins"
+})
+const roboto = Roboto_Mono({
+  subsets: ['latin'],
+  weight: '700',
+  variable: "--font-roboto"
+})
+const crimson = Crimson_Text({
+  subsets: ['latin'],
+  weight: '600',
+  variable: "--font-crimson"
+})
+const gravitas = Gravitas_One({
+  subsets: ['latin'],
+  weight: '400',
+  variable: "--font-gravitas"
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,9 +38,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${roboto.variable} ${poppins.variable} ${crimson.variable} ${gravitas.variable} antialiased`}
       >
+        <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

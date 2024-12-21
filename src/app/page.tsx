@@ -1,101 +1,75 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <main className="bg-white">
+        <section className="md:py-16  px-6 lg:px-16">
+          <div className="w-[100%] grid md:grid-cols-2 gap-3 lg:gap-8 items-center justify-items-end">
+            <div>
+              <h2 className="md:text-4xl text-2xl font-bold mb-4 text-gray-800 gravitas">About Us</h2>
+              <p className="text-gray-600 mb-6 crimson lg:leading-9 lg:text-[26px] md:text-[20px] text-[16px] lg:tracking-wider">
+                At Perfume Paradise, we offer a wide range of perfumes crafted with passion and care. 
+                Let your scent leave a lasting impression wherever you go.
+                At Perfume Paradise, we believe that a fragrance is more than just a scent—it&apos;s a statement, a memory, and a part of your unique identity. Whether you&apos;re looking for timeless classics or modern creations, our range caters to every preference and occasion.
+              </p>
+              <button className="bg-purple-400 crimson text-white font-semibold md:px-6 px-4 md:py-3 py-2 rounded-full shadow-md hover:bg-purple-500">
+                Learn More
+              </button>
+            </div>
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/about.jpeg"
+              alt="Perfume Bottles"
+              className="rounded-lg shadow-lg"
+              width={500}
+              height={500}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-6 bg-gray-50">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="md:text-4xl text-2xl font-bold mb-4 text-gray-800 gravitas">Featured Products</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3].map((item) => (
+                <div key={item} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <Image
+                    src={`/perfume${item}.jpeg`}
+                    alt={`Perfume ${item}`}
+                    className="w-full h-64 object-cover"
+                    width={300}
+                    height={300}
+                  />
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2 crimson">Perfume {item}</h3>
+                    <p className="text-gray-600 roboto">$50.00</p>
+                    <button className="mt-4 bg-purple-400 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-500 crimson">
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="md:text-4xl text-2xl font-bold mb-4 text-gray-800 gravitas">What Our Customers Say</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3].map((item) => (
+                <div key={item} className="bg-white rounded-lg shadow-lg p-6">
+                  <p className="text-gray-600 mb-4 poppins">
+                    &quot;This is the best perfume I have ever used! The fragrance lasts all day and is 
+                    simply enchanting.&quot;
+                  </p>
+                  <h4 className="text-gray-800 font-semibold crimson">Customer {item}</h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
